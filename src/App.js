@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./App.css";
 import Form from "./components/Form";
 import TodoList from "./components/TodoList";
@@ -8,6 +8,27 @@ function App() {
   const [todos, setTodos] = useState([]);
   const [todoEditing, setTodoEditing] = useState(null);
   const [editingText, setEditingText] = useState("");
+
+  useEffect(() => {
+    getFromLocalStorage();
+  }, []);
+
+  useEffect(() => {
+    saveToLocalStorage();
+  }, [todos]);
+
+  const saveToLocalStorage = () => {
+    localStorage.setItem("todos", JSON.stringify(todos));
+  };
+
+  const getFromLocalStorage = () => {
+    if (localStorage.getItem("todos") === null) {
+      localStorage.setItem("todos", JSON.stringify([]));
+    } else {
+      const test = JSON.parse(localStorage.getItem("todos"));
+      setTodos(test);
+    }
+  };
 
   return (
     <div className="todo">
