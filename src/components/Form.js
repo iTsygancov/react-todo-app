@@ -9,7 +9,7 @@ function Form({ inputText, setInputText, todos, setTodos }) {
       {
         title: inputText,
         completed: false,
-        id: Math.floor(Math.random * 100000),
+        id: Math.floor(Math.random() * 100000),
       },
     ]);
     setInputText("");
