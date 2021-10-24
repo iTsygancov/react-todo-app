@@ -4,6 +4,9 @@ function Form({ inputText, setInputText, todos, setTodos }) {
   };
   const submitTodosHandler = (e) => {
     e.preventDefault();
+    if (!inputText || /^\s*$/.test(inputText)) {
+      return;
+    }
     setTodos([
       ...todos,
       {
@@ -20,6 +23,7 @@ function Form({ inputText, setInputText, todos, setTodos }) {
       <input
         className="todo__form-input"
         type="text"
+        placeholder="Add todo..."
         value={inputText}
         onChange={inputTextHandler}
       />

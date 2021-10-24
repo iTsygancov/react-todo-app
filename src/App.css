@@ -1,0 +1,90 @@
+.button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0.5rem 1rem;
+    border: none;
+    border-radius: .25rem;
+    color: #595959;
+    margin: 0.25rem;
+    cursor: pointer;
+}
+.button:disabled {
+    opacity: .25;
+}
+.todo {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding-top: 3rem;
+}
+.todo__form {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 2rem;
+    min-width: 50vw;
+}
+.todo__form-input {
+    width: 100%;
+    padding: .3rem;
+    border: 1px solid #e4e4e4;
+    border-radius: .25rem;
+    min-height: 1.25rem;
+}
+.todo__item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    min-width: 50vw;
+    padding: 0.5rem 1rem;
+    border-radius: .5rem;
+}
+.todo__item-complete {
+    margin-right: 1rem;
+}
+.todo__item-info {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.todo__item-title {
+    width: 100%;
+}
+.todo__item-title--completed {
+    text-decoration: line-through;
+}
+.todo__item-buttons {
+    display: flex;
+}
+.todo__item-delete {
+    background-color: #eb5757;
+    color: #fff;
+}
+.todo__item-edit {
+    background-color: #06c;
+    color: #fff;
+}
+.todo__item-editing {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 100%;
+}
+.todo__item-editInput {
+    width: 100%;
+    padding: .3rem;
+    border: 1px solid #e4e4e4;
+    border-radius: .25rem;
+    min-height: 1.25rem;   
+}
+.todo__item-submitEdits {
+    background-color: green;
+    color: #fff;
+}
+
+.todo__item--completed {
+    background-color: rgba(0, 128, 0, .25);
+}

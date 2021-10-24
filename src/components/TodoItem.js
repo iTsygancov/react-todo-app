@@ -25,6 +25,9 @@ function TodoItem({
   };
 
   function submitEdits(id) {
+    if (!editingText || /^\s*$/.test(editingText)) {
+      return;
+    }
     const updatedTodos = [...todos].map((todo) => {
       if (todo.id === id) {
         todo.title = editingText;
@@ -40,7 +43,7 @@ function TodoItem({
       className={`todo__item ${todo.completed ? "todo__item--completed" : ""}`}
     >
       <input
-        className="todo__item-completed"
+        className="todo__item-complete"
         type="checkbox"
         onChange={completedHandler}
       />
@@ -56,7 +59,7 @@ function TodoItem({
             className="button todo__item-submitEdits"
             onClick={() => submitEdits(todo.id)}
           >
-            Сохранить
+            Save
           </button>
         </div>
       ) : (
@@ -74,10 +77,10 @@ function TodoItem({
               disabled={todo.completed ? "disabled" : ""}
               onClick={() => setTodoEditing(todo.id)}
             >
-              Изменить
+              Edit
             </button>
             <button className="button todo__item-delete" onClick={deleteHandler}>
-              Удалить
+              Delete
             </button>
           </div>
         </div>
